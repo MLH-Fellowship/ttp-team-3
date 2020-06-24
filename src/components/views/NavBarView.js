@@ -51,5 +51,6 @@ const NavBarView =(props)=> {
 NavBarView.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
+
 };
 export default NavBarView;
