@@ -13,14 +13,16 @@ class BookListContainer extends Component {
   componentDidMount() {
     this.props.fetchBooks();
   }
-
+  check(){
+    console.log(this.props.book)
+  }
   render() {
-    return <div>BOOKS</div>;
+    return <button onClick={()=>this.check()}>BOOKS</button>;
   }
 }
 const mapState = (state) => {
   console.log(state.books)
-  return { book: state };
+  return { book: state.books };
 };
 const mapDispatch = (dispatch) => {
   return {
