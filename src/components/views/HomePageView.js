@@ -7,7 +7,7 @@ const HomePageView =(props)=> {
   
     return (
       <div>
-        <h2>Welcome to Cheapest Price</h2>
+        <h2>Welcome to Book Store</h2>
         <p>
 
         </p>
