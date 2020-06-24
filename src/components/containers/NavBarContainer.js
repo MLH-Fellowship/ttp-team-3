@@ -29,6 +29,7 @@ class NavBarContainer extends Component {
     />;
   }
 }
+
 const mapState = (state) => {
   return {
     user:state.user,

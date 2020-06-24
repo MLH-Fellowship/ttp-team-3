@@ -9,6 +9,7 @@ class HomePageContainer extends Component {
     return <HomePageView 
     user={this.props.user}
     />;
+    
   }
 }
 const mapState = (state) => {
