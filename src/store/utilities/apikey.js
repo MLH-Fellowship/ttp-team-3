@@ -1,4 +1,3 @@
-
 exports.config = {
-    API_KEY: ''
-  };
+  API_KEY: "AIzaSyDKscmfqF_tqvOmBYaDYpLb6TZtjwHrcR4",
+};
