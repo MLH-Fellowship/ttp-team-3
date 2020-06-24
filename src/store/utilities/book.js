@@ -1,5 +1,6 @@
 import axios from "axios";
-
+const custom = require('./apikey');
+const API_KEY=custom.config.API_KEY
 // ACTION TYPE
 const GET_BOOK_INFO = "GET_BOOK_INFO";
 
@@ -15,9 +16,9 @@ const fetchBooks = (bookData) => {
 export const fetchBooksThunker = () => (dispatch) => {
   return axios
     .get(
-      "https://www.googleapis.com/books/v1/volumes?q=javascript&printType=books&key=AIzaSyDKscmfqF_tqvOmBYaDYpLb6TZtjwHrcR4"
+      `https://www.googleapis.com/books/v1/volumes?q=javascript&printType=books&key=${API_KEY}`
     )
-    .then((res) => res.data)
+    .then((res) => res.data.items)
     .then((bookData) => dispatch(fetchBooks(bookData)))
     .catch((err) => console.log("Thunk err: ", err));
 };
@@ -26,7 +27,7 @@ export const fetchBooksThunker = () => (dispatch) => {
 const reducer = (state = [], action) => {
   switch (action.type) {
     case GET_BOOK_INFO:
-      return [...state, action.payload];
+      return action.payload;
     default:
       return state;
   }
