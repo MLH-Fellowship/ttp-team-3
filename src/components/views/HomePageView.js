@@ -1,13 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 //basic Home page
 const HomePageView =(props)=> {
   if (!props.newestTen.length) {
     return <div className="NewTen">There are no new book.</div>;
   }
-  console.log(props.newestTen);
-
+  if(props.newestTen.volumeInfo) {
+  console.log(props.newestTen.volumeInfo.imageLinks.smallThumbnail);
+  }
 //TypeError: Cannot read property 'map' of undefined
     return (
       <div>
@@ -30,8 +31,8 @@ const HomePageView =(props)=> {
     );
 }
 //<img src={new10.volumeInfo.imageLinks.smallThumbnail} width="200px" alt={new10.id} />
-HomePageView.propTypes = {
-  newestTen: PropTypes.array.isRequired,
-};
+// HomePageView.propTypes = {
+//   newestTen: PropTypes.array.isRequired,
+// };
 
 export default HomePageView;
