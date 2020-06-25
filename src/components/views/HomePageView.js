@@ -6,8 +6,8 @@ const HomePageView =(props)=> {
   if (!props.newestTen.length) {
     return <div className="NewTen">There are no new book.</div>;
   }
-  if(props.newestTen.volumeInfo) {
-  console.log(props.newestTen.volumeInfo.imageLinks.smallThumbnail);
+  else{
+    console.log(props.newestTen[0].volumeInfo.imageLinks.smallThumbnail)
   }
 //TypeError: Cannot read property 'map' of undefined
     return (
@@ -21,7 +21,7 @@ const HomePageView =(props)=> {
           {props.newestTen.map((new10) => (
             <div className="card col-3" key={new10.id}>
               <Link to={`/books/${new10.id}`}>
-                <p><img src={new10.volumeInfo.imageUrl} width="200px" alt={new10.id} />
+                <p><img src={new10.volumeInfo.imageLinks.smallThumbnail} width="200px" alt={new10.id} />
                 <br/>{new10.volumeInfo.title}
                 </p>
               </Link>
