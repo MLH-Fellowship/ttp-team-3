@@ -4,3 +4,4 @@ export { default as allUsers}from "../store/utilities/allUsers";
 export { default as user}from "../store/utilities/user";
 export { default as books}from "../store/utilities/allBooks";
 export { default as book}from "../store/utilities/book";
+export { default as allItems}from "../store/utilities/allItems";

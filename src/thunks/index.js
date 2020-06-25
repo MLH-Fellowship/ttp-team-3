@@ -3,3 +3,4 @@ export * from "../store/utilities/allUsers.js";
 export * from "../store/utilities/user.js";
 export * from "../store/utilities/allBooks.js";
 export * from "../store/utilities/book.js";
+export * from "../store/utilities/allItems.js"
