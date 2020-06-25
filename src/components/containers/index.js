@@ -6,3 +6,4 @@ export { default as UserContainer } from "./UserContainer";
 export { default as LoginFormContainer } from "./LoginFormContainer";
 export { default as EditUserFormContainer } from "./EditUserFormContainer";
 export { default as BookListContainer } from "./BookListContainer";
+export { default as SearchBooksContainer } from "./SearchBooksContainer";
