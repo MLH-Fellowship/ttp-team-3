@@ -48,10 +48,10 @@ export const fetchNewestTenThunk = () => (dispatch) => {
 export const searchBooksThunk = (search, ownProps) => (dispatch) => {
   return axios
     .get(`https://www.googleapis.com/books/v1/volumes?q=${search}&printType=books&key=${API_KEY}`)
-    .then((res) => res.data.products)
-    .then((items) => {
+    .then((res) => res.data.items)
+    .then((books) => {
 
-      dispatch(searchProducts(items))
+      dispatch(searchProducts(books))
       ownProps.history.push("/books/s/search");
     })
     .catch((err) => console.log(err));
