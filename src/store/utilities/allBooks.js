@@ -4,7 +4,7 @@ const API_KEY=custom.config.API_KEY
 // ACTION TYPE
 const GET_BOOK_INFO = "GET_BOOK_INFO";
 const FETCH_NEWEST_TEN = "FETCH_NEWEST_TEN";
-
+const SEARCH_BOOKS="SEARCH_BOOKS";
 // ACTION CERATOR
 const fetchBooks = (bookData) => {
   return {
@@ -19,7 +19,12 @@ const fetchNewestTen = (tenBooks) => {
     payload: tenBooks,
   };
 };
-
+const searchProducts=(product)=>{
+  return {
+    type: SEARCH_BOOKS,
+    payload: product,
+  };
+};
 // THUNK
 export const fetchBooksThunker = () => (dispatch) => {
   return axios
@@ -40,15 +45,27 @@ export const fetchNewestTenThunk = () => (dispatch) => {
     .then((tenBooks) => dispatch(fetchNewestTen(tenBooks)))
     .catch((err) => console.log("Thunk err: ", err));
 };
+export const searchBooksThunk = (search, ownProps) => (dispatch) => {
+  return axios
+    .get(`https://www.googleapis.com/books/v1/volumes?q=${search}&printType=books&key=${API_KEY}`)
+    .then((res) => res.data.products)
+    .then((items) => {
 
+      dispatch(searchProducts(items))
+      ownProps.history.push("/books/s/search");
+    })
+    .catch((err) => console.log(err));
+};
 
 // REDUCER
 const reducer = (state = [], action) => {
   switch (action.type) {
     case GET_BOOK_INFO:
       return action.payload;
-      case FETCH_NEWEST_TEN:
-        return action.payload;
+    case FETCH_NEWEST_TEN:
+      return action.payload;
+    case SEARCH_BOOKS:
+      return action.payload;
     default:
       return state;
   }
