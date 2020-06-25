@@ -6,10 +6,10 @@ const EDIT_ITEM = "EDIT_ITEM";
 const DELETE_ITEM = "DELETE_ITEM";
 
 // ACTION CREATORS;
-const fetchAllItems = (items) => {
+const fetchAllItems = (books) => {
   return {
     type: FETCH_ALL_ITEMS,
-    payload: items,
+    payload: books,
   };
 };
 
@@ -37,27 +37,29 @@ const deleteItem = (id) => {
 // THUNK CREATORS;
 export const fetchAllItemsThunk = () => (dispatch) => {
   return axios
-    .get("/api/items")
+    .get("/api/books")
     .then((res) => res.data)
-    .then((items) => dispatch(fetchAllItems(items)))
+    .then((books) => dispatch(fetchAllItems(books)))
     .catch((err) => console.log(err));
 };
 
 export const addItemThunk = (item, ownProps) => (dispatch) => {
+  console.log(item)
   return axios
-    .post("/api/items", item)
+    .post("/api/books", item)
     .then((res) => res.data)
     .then((newUser) => {
-      const tweakedUser = { ...newUser, items: [] };
+      console.log(newUser)
+      const tweakedUser = { ...newUser, books: [] };
       dispatch(addItem(tweakedUser));
-      ownProps.history.push(`/favorite/`);
+      // ownProps.history.push(`/favorite/`);
     })
     .catch((err) => console.log(err));
 };
 
 export const editItemThunk = (id, item) => (dispatch) => {
   return axios
-    .put(`/api/items/${id}`, item)
+    .put(`/api/books/${id}`, item)
     .then((res) => res.data)
     .then((updatedUser) => {
       dispatch(editItem(updatedUser));
@@ -67,7 +69,7 @@ export const editItemThunk = (id, item) => (dispatch) => {
 
 export const deleteItemThunk = (id) => (dispatch) => {
   return axios
-    .delete(`/api/items/${id}`)
+    .delete(`/api/books/${id}`)
     .then((res) => res.data)
     .then(() => dispatch(deleteItem(id)))
     .catch((err) => console.log(err));

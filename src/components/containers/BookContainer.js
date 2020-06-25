@@ -37,7 +37,7 @@ class BookContainer extends Component {
     }
     console.log(item)
     e.preventDefault();
-    //this.props.addItem(item);
+    this.props.addItem(item);
   }
 
   };
