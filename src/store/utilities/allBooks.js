@@ -19,10 +19,10 @@ const fetchNewestTen = (tenBooks) => {
     payload: tenBooks,
   };
 };
-const searchProducts=(product)=>{
+const searchProducts=(books)=>{
   return {
     type: SEARCH_BOOKS,
-    payload: product,
+    payload: books,
   };
 };
 // THUNK
@@ -46,11 +46,11 @@ export const fetchNewestTenThunk = () => (dispatch) => {
     .catch((err) => console.log("Thunk err: ", err));
 };
 export const searchBooksThunk = (search, ownProps) => (dispatch) => {
+    let url=`https://www.googleapis.com/books/v1/volumes?q=${Object.values(search)[0]}&printType=books&key=${API_KEY}`
   return axios
-    .get(`https://www.googleapis.com/books/v1/volumes?q=${search}&printType=books&key=${API_KEY}`)
+    .get(url)
     .then((res) => res.data.items)
     .then((books) => {
-
       dispatch(searchProducts(books))
       ownProps.history.push("/books/s/search");
     })
