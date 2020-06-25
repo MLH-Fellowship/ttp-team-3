@@ -6,7 +6,8 @@ import {
    UserContainer,
    LoginFormContainer,
    EditUserFormContainer,
-   BookListContainer
+   BookListContainer,
+   SearchBooksContainer
 } from "../containers";
 
 const RoutesView = () => {
@@ -19,6 +20,7 @@ const RoutesView = () => {
       <Route exact path="/users/:id" component={UserContainer}/>
       <Route exact path="/users/:id/edit" component={EditUserFormContainer}/>
       <Route exact path="/books" component={BookListContainer} />
+      <Route exact path="/books/s/search" component={SearchBooksContainer}/>
     </Switch>
   );
 };
