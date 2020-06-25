@@ -28,27 +28,27 @@ const HomePageView =(props)=> {
         <div className="imageArea">
           <div id="ImagecarouselIndicators" class="carousel slide" data-ride="carousel"  >
             <ol class="carousel-indicators">
-              <li data-target="" data-slide-to="0" class="active"></li>
-              <li data-target="" data-slide-to="1"></li>
-              <li data-target="" data-slide-to="2"></li>
+              <li data-slide-to="0" class="active"></li>
+              <li data-slide-to="1"></li>
+              <li  data-slide-to="2"></li>
             </ol>
             <div>
               <div class="carousel-item active">
-                <img class="d-block w-100" height="300px" src="https://springhillfresh.com/wp-content/uploads/2017/01/book-sale.jpg" alt="First"/>
+                <img class="d-block w-100" height="300px" src="https://springhillfresh.com/wp-content/uploads/2017/01/book-sale.jpg" alt="0"/>
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" height="300px" src="https://www.aer.io/img/blog-images/backlist_title_blog.jpg" alt="Second"/>
+                <img class="d-block w-100" height="300px" src="https://www.aer.io/img/blog-images/backlist_title_blog.jpg" alt="1"/>
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" height="300px" src="https://dispatch.barnesandnoble.com/content/dam/ccr/boutique/hero/PROD-18189_Pride_Hero_06-01-sticker.jpg" alt="Third"/>
+                <img class="d-block w-100" height="300px" src="https://dispatch.barnesandnoble.com/content/dam/ccr/boutique/hero/PROD-18189_Pride_Hero_06-01-sticker.jpg" alt="2"/>
               </div>
             </div>
-            <a class="carousel-control-prev" href="" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span  aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true" ></span>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span  aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
