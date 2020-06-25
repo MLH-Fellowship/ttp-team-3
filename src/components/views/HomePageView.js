@@ -21,12 +21,39 @@ const HomePageView =(props)=> {
   }
     return (
       <div>
-      <h2>Welcome to Book Store</h2>
-      <p> image</p>
+        <h2>Welcome to Book Store</h2>
+        <p>
+          <div id="ImagecarouselIndicators" class="carousel slide" data-ride="carousel" >
+            <ol class="carousel-indicators">
+              <li data-target="" data-slide-to="0" class="active"></li>
+              <li data-target="" data-slide-to="1"></li>
+              <li data-target="" data-slide-to="2"></li>
+            </ol>
+            <div>
+              <div class="carousel-item active">
+                <img class="d-block w-100" height="300px" src="https://springhillfresh.com/wp-content/uploads/2017/01/book-sale.jpg" alt="First"/>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" height="300px" src="https://www.aer.io/img/blog-images/backlist_title_blog.jpg" alt="Second"/>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" height="300px" src="https://dispatch.barnesandnoble.com/content/dam/ccr/boutique/hero/PROD-18189_Pride_Hero_06-01-sticker.jpg" alt="Third"/>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </p>
 
-
-      <h2> Most recent Book</h2>
-          <div className="card-container row">
+        <p>
+        <h2>Most recent Book</h2>
+          <div className="Mewestbook-container row" >
           {searchBook.map((book) => (
             <div className="card col-3" key={book.id}>
               <Link to={`/books/${book.id}`}>
@@ -36,9 +63,9 @@ const HomePageView =(props)=> {
               </Link>
             </div>
           ))}
-          </div>
+          </div></p>
+        </div>
 
-      </div>
     );
 }
 
