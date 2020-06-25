@@ -12,7 +12,6 @@ const BookCard = (props) => {
 
 export default function BookListView(props) {
   return (
-    <React.Fragment>
       <div className="card-container row">
         {props.books.map((info) => (
           <BookCard
@@ -23,6 +22,5 @@ export default function BookListView(props) {
           />
         ))}
       </div>
-    </React.Fragment>
   );
 }

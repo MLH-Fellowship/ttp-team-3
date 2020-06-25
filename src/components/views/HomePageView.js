@@ -7,7 +7,7 @@ const HomePageView =(props)=> {
     return <div className="NewTen">There are no new book.</div>;
   }
   else{
-    console.log(props.newestTen[0].volumeInfo.imageLinks.smallThumbnail)
+    console.log(props.newestTen)
   }
 //TypeError: Cannot read property 'map' of undefined
     return (
