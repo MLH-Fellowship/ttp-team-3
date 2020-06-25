@@ -11,7 +11,8 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.center{
+
+.center {
   position: absolute;
   width: 100%;
   text-align: center;
@@ -28,8 +29,6 @@
   min-width: 250px;
   max-width: 250px;
 }
-
-
 
 .form-signin {
   width: 100%;

@@ -8,27 +8,57 @@ class BookListContainer extends Component {
     super(props);
     this.state = {
       books: [],
-      search: "javascript",
+      search: "c++",
+      filter: "",
     };
   }
 
   componentDidMount() {
-    this.props.fetchBooks();
+    this.props.fetchBooks(this.state.search);
+    // this.props.book;
   }
-  check() {
-    console.log(this.props.book[0].volumeInfo.imageLinks.smallThumbnail);
+  //this function is invoked when the search button is clicked
+  setBookData = () => {
     this.setState({
       ...this.state,
       books: this.props.book,
     });
-  }
+  };
+  handleFIlter = (event) => {
+    this.setState({
+      ...this.state,
+      filter: event.target.value,
+    });
+  };
   render() {
+    // const { books, filter } = this.state;
+    // // const { publishedDate: date } = this.state.books.volumeInfo;
+
+    // const handleSort = books.sort((x, y) => {
+    //   if (filter === "newest") {
+    //     return (
+    //       parseInt(y.volumeInfo.publishedInfo.substring(0, 4)) -
+    //       parseInt(x.volumeInfo.publishedInfo.substring(0, 4))
+    //     );
+    //   } else if (filter === "oldest") {
+    //     return (
+    //       parseInt(x.volumeInfo.publishedInfo.substring(0, 4)) -
+    //       parseInt(y.volumeInfo.publishedInfo.substring(0, 4))
+    //     );
+    //   } else {
+    //     console.log("######( None )#########");
+    //   }
+    // });
     return (
       <React.Fragment>
         <div className="container">
-          <BookListView books={this.state.books} />
+          <BookListView
+            // books={handleSort}
+            books={this.state.books}
+            setBookData={() => this.setBookData()}
+          />
         </div>
-        <button onClick={() => this.check()}>BOOKS</button>
+        {/* <button onClick={() => this.setBookData()}>BOOKS</button> */}
       </React.Fragment>
     );
   }
@@ -40,7 +70,7 @@ const mapState = (state) => {
 };
 const mapDispatch = (dispatch) => {
   return {
-    fetchBooks: () => dispatch(fetchBooksThunker()),
+    fetchBooks: (search) => dispatch(fetchBooksThunker(search)),
   };
 };
 export default connect(mapState, mapDispatch)(BookListContainer);
