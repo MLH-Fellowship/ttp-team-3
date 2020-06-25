@@ -35,6 +35,11 @@ const NavBarView = (props) => {
             </Link>
           </li>
           {LoginDisplay}
+          <li className="nav-item">
+            <Link to="/books" className="nav-link">
+              books
+            </Link>
+          </li>
         </ul>
         <form
           className="form-inline mt-2 mt-md-0"

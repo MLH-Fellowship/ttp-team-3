@@ -3,13 +3,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 //basic Home page
 const HomePageView =(props)=> {
+  let searchBook=[]
   if (!props.newestTen.length) {
-    return <div className="NewTen">There are no new book.</div>;
+    return <div>Loading</div>
   }
   else{
-    console.log(props.newestTen)
+    searchBook=props.newestTen
+    searchBook.map(book =>{
+        if(!book.volumeInfo.imageLinks){
+            console.log(book)
+            book.imgUrl="https://via.placeholder.com/305x242?text=Placeholder"
+        }
+        else{
+            book.imgUrl=book.volumeInfo.imageLinks.thumbnail
+        }
+    });
   }
-//TypeError: Cannot read property 'map' of undefined
     return (
       <div>
       <h2>Welcome to Book Store</h2>
@@ -18,11 +27,11 @@ const HomePageView =(props)=> {
 
       <h2> Most recent Book</h2>
           <div className="card-container row">
-          {props.newestTen.map((new10) => (
-            <div className="card col-3" key={new10.id}>
-              <Link to={`/books/${new10.id}`}>
-                <p><img src={new10.volumeInfo.imageLinks.smallThumbnail} width="200px" alt={new10.id} />
-                <br/>{new10.volumeInfo.title}
+          {searchBook.map((book) => (
+            <div className="card col-3" key={book.id}>
+              <Link to={`/books/${book.id}`}>
+                <p><img src={book.imgUrl} height="305px" width="242px" alt={book.id} />
+                <br/>{book.volumeInfo.title}
                 </p>
               </Link>
             </div>

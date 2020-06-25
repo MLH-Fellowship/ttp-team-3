@@ -1,26 +1,45 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const BookCard = (props) => {
+const BookListView = props => {
+    let searchBook;
+  if (!props.books.length) {
+    return <div>Nothing in the Search page</div>
+  }
+  else{
+    searchBook=props.books
+    searchBook.map(book =>{
+        if(!book.volumeInfo.imageLinks){
+            console.log(book)
+            book.imgUrl="https://via.placeholder.com/305x242?text=Placeholder"
+        }
+        else{
+            book.imgUrl=book.volumeInfo.imageLinks.thumbnail
+        }
+    });
+    console.log(searchBook)
   return (
-    <div className="card col-3">
-      <img src={props.image} alt="xxx" />
-      <h2>Title: {props.title}</h2>
-      <h4>Author: {props.author}</h4>
+    <div className="center"> 
+    <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+          <h2 className="display-4">Book</h2>
+        </div>
+      <div className="container">  
+      <div className="row row-cols-1 row-cols-md-3" >
+      {searchBook.map(book =>(
+          <div className="card col-3" key={book.id}>
+          <Link to={`/books/${book.id}`}>
+            <p><img src={book.imgUrl} height="305px" width="242px" alt={book.id} />
+            <br/>{book.volumeInfo.title}
+            </p>
+          </Link>
+        </div>)
+        )}
+      </div>
+      </div>
     </div>
   );
+  }
 };
+  
 
-export default function BookListView(props) {
-  return (
-      <div className="card-container row">
-        {props.books.map((info) => (
-          <BookCard
-            key={info.id}
-            image={info.volumeInfo.imageLinks.thumbnail}
-            title={info.volumeInfo.title}
-            author={info.volumeInfo.authors}
-          />
-        ))}
-      </div>
-  );
-}
+export default BookListView;
