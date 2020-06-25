@@ -12,13 +12,14 @@ class HomePageContainer extends Component {
   render() {
     return <HomePageView 
     user={this.props.user}
-    newestTen={this.props.newestTen}
+    newestTen={this.props.books}
     />;
   }
 }
 const mapState = (state) => {
 return {
   user: state.user,
+  books: state.books,
 };
 };
 
@@ -30,8 +31,11 @@ const mapDispatch = (dispatch) => {
 };
 
 // Type check props;
+//use the props variable??
 HomePageContainer.propTypes = {
   newestTen: PropTypes.array.isRequired,
+  //books: PropTypes.array.isRequired,
+  fetchNewestTen: PropTypes.func.isRequired,
 };
 
-export default connect(mapState)(HomePageContainer);
+export default connect(mapState, mapDispatch)(HomePageContainer);
