@@ -3,7 +3,7 @@ const custom = require('./apikey');
 const API_KEY=custom.config.API_KEY
 // ACTION TYPE
 const GET_BOOK_INFO = "GET_BOOK_INFO";
-const FETCH_NEWEST_TEN = "FETCH_NEWEST_TEN";
+const FETCH_NEWEST_EIGHT = "FETCH_NEWEST_EIGHT";
 const SEARCH_BOOKS="SEARCH_BOOKS";
 // ACTION CERATOR
 const fetchBooks = (bookData) => {
@@ -13,12 +13,13 @@ const fetchBooks = (bookData) => {
   };
 };
 
-const fetchNewestTen = (tenBooks) => {
+const fetchNewestEight = (eightBooks) => {
   return {
-    type: FETCH_NEWEST_TEN,
-    payload: tenBooks,
+    type: FETCH_NEWEST_EIGHT,
+    payload: eightBooks,
   };
 };
+
 const searchProducts=(books)=>{
   return {
     type: SEARCH_BOOKS,
@@ -36,15 +37,17 @@ export const fetchBooksThunker = () => (dispatch) => {
     .catch((err) => console.log("Thunk err: ", err));
 };
 
-export const fetchNewestTenThunk = () => (dispatch) => {
+export const fetchNewestEightThunk = () => (dispatch) => {
   return axios
     .get(
-      `https://www.googleapis.com/books/v1/volumes?q=""&key=${API_KEY}&maxResults=10`
+      `https://www.googleapis.com/books/v1/volumes?q=""&key=${API_KEY}&maxResults=8`
     )
     .then((res) => res.data.items)
-    .then((tenBooks) => dispatch(fetchNewestTen(tenBooks)))
+    .then((eightBooks) => dispatch(fetchNewestEight(eightBooks)))
     .catch((err) => console.log("Thunk err: ", err));
 };
+
+
 export const searchBooksThunk = (search, ownProps) => (dispatch) => {
     let url=`https://www.googleapis.com/books/v1/volumes?q=${Object.values(search)[0]}&printType=books&key=${API_KEY}`
   return axios
@@ -62,7 +65,7 @@ const reducer = (state = [], action) => {
   switch (action.type) {
     case GET_BOOK_INFO:
       return action.payload;
-    case FETCH_NEWEST_TEN:
+    case FETCH_NEWEST_EIGHT:
       return action.payload;
     case SEARCH_BOOKS:
       return action.payload;
