@@ -14,7 +14,9 @@ const HomePageView =(props)=> {
       <div>
       <h2>Welcome to Book Store</h2>
       <p> image</p>
-      <p> Most recent Book</p>
+
+
+      <h2> Most recent Book</h2>
           <div className="card-container row">
           {props.newestTen.map((new10) => (
             <div className="card col-3" key={new10.id}>
@@ -30,9 +32,5 @@ const HomePageView =(props)=> {
       </div>
     );
 }
-//<img src={new10.volumeInfo.imageLinks.smallThumbnail} width="200px" alt={new10.id} />
-// HomePageView.propTypes = {
-//   newestTen: PropTypes.array.isRequired,
-// };
 
 export default HomePageView;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-//import PropTypes from "prop-types";
+//import PropTypes from "prop-types";AIzaSyDKscmfqF_tqvOmBYaDYpLb6TZtjwHrcR4
 import { fetchNewestTenThunk } from "../../thunks";
 import { HomePageView } from "../views";
 
@@ -29,13 +29,5 @@ const mapDispatch = (dispatch) => {
     fetchNewestTen: () => dispatch(fetchNewestTenThunk()),
   };
 };
-
-// // Type check props;
-// //use the props variable??
-// HomePageContainer.propTypes = {
-//   newestTen: PropTypes.array.isRequired,
-//   //books: PropTypes.array.isRequired,
-//   fetchNewestTen: PropTypes.func.isRequired,
-// };
 
 export default connect(mapState, mapDispatch)(HomePageContainer);
