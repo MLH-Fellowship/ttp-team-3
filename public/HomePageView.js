@@ -1,7 +1,6 @@
 import React from "react";
 //import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "./style.css";
 
 //basic Home page
 const HomePageView =(props)=> {
@@ -22,11 +21,21 @@ const HomePageView =(props)=> {
     });
   }
 
+
+  imageStyle = {
+    width: "100vw",
+    height: "50vh",
+  };
+
+  imageStyle
+
     return (
       <div>
         <h2>Welcome to Book Store</h2>
-        <div className="imageArea">
-          <div id="ImagecarouselIndicators" class="carousel slide" data-ride="carousel"  >
+        
+        <p>
+          <div id="ImagecarouselIndicators" class="carousel slide" data-ride="carousel" style={this.imageStyle}
+>
             <ol class="carousel-indicators">
               <li data-target="" data-slide-to="0" class="active"></li>
               <li data-target="" data-slide-to="1"></li>
@@ -52,9 +61,9 @@ const HomePageView =(props)=> {
               <span class="sr-only">Next</span>
             </a>
           </div>
-        </div>
-
-        <div className="bookArea">
+        </p>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <p>
         <h2>Most recent Book</h2>
           <div className="newestbook-container row" >
           {searchBook.map((book) => (
@@ -66,8 +75,7 @@ const HomePageView =(props)=> {
               </Link>
             </div>
           ))}
-          </div>
-        </div>
+          </div></p>
         </div>
     );
 }
