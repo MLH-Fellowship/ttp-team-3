@@ -34,7 +34,7 @@ export const fetchBooksThunker = () => (dispatch) => {
 export const fetchNewestTenThunk = () => (dispatch) => {
   return axios
     .get(
-      `https://www.googleapis.com/books/v1/volumes?q=?&key=${API_KEY}&maxResults=10`
+      `https://www.googleapis.com/books/v1/volumes?q=""&key=${API_KEY}&maxResults=10`
     )
     .then((res) => res.data.items)
     .then((tenBooks) => dispatch(fetchNewestTen(tenBooks)))
