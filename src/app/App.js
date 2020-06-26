@@ -6,23 +6,24 @@ import { NavBarContainer } from "../components/containers";
 import axios from "axios";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: {}
-    };
-    }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     user: {}
+  //   };
+  //   }
 
-    componentDidMount() {
-      if (this.currentUser) {
-        console.log('Hi here');
-        }
-        else{
-          console.log('Hi there');
-        }
-    }
+    // componentDidMount() {
+    //   if (isSet(user)) {
+    //     alert("I am an alert box!");
+    //     }
+    //   else{
+    //     console.log('Hi logined');
+    //   }
+    // }
 
   render() {
+
     return (
       <div className="app">
         <NavBarContainer />
