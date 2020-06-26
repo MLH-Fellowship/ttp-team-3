@@ -55,7 +55,7 @@ class CheckoutContainer extends Component {
         }
            <li className="list-group-item d-flex justify-content-between">
             <span>Total (USD)</span>
-            <strong>${totalprice}</strong>
+            <strong>${(totalprice).toFixed(2)}</strong>
           </li>
         </ul>
       </div>
