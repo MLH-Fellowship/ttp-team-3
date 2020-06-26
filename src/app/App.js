@@ -6,7 +6,21 @@ import { NavBarContainer } from "../components/containers";
 import axios from "axios";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {}
+    };
+    }
 
+    componentDidMount() {
+      if (this.currentUser) {
+        console.log('Hi here');
+        }
+        else{
+          console.log('Hi there');
+        }
+    }
 
   render() {
     return (
@@ -22,5 +36,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;

@@ -8,7 +8,7 @@ const NavBarView = (props) => {
     LoginDisplay = (
       <li className="nav-item">
         <Link to={`/users/${props.user.id}`} className="nav-link">
-          Hi,{props.user.userName}
+          Hi, {props.user.userName}
         </Link>
       </li>
     );
