@@ -1,0 +1,36 @@
+.book-container {
+  border-radius: 25px;
+  border: 3px solid black;
+  padding: 20px;
+  width: auto;
+  height: 33rem;
+  background-color: whitesmoke;
+}
+.book-container img {
+  width: 225px;
+  margin-top: 2rem;
+  float: left;
+}
+#title-and-desc h1 {
+  font-family: sans-serif;
+  font-weight: bold;
+
+  padding: 10px;
+}
+#title-and-desc {
+  float: top;
+}
+.book-container p {
+  margin-top: 2rem;
+}
+.book-container h1 p {
+  display: flex;
+  justify-content: right;
+}
+.book-container p::before {
+  content: "\a";
+  white-space: pre;
+}
+body {
+  background-color: lightskyblue;
+}
