@@ -1,0 +1,25 @@
+.bookArea{
+  position: absolute;
+  top: 460px;
+  width: 100vw;
+  scroll-behavior: auto;
+  height: 100vh;
+}
+
+.imageArea{
+    position: absolute;
+    top: 20vh;
+    width: 100vw;
+}
+
+.carousel-control-prev,
+.carousel-control-next
+{
+    position: absolute;
+    top: 150px;
+}
+
+.carousel-indicators{
+    position: absolute;
+    top: 280px;
+}
