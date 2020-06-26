@@ -15,11 +15,11 @@ const RoutesView = () => {
   return (
     <Switch>
       <Route exact path="/signup" component={SignupFormContainer} />
-     
+      <Route exact path="/login" component={LoginFormContainer} />
       <Route exact path="/home" component={HomePageContainer} />
-
-      <Route exact path="/" component={LoginFormContainer} />
       
+      <Route exact path="/" component={LoginFormContainer} />
+
       <Route exact path="/users/:id" component={UserContainer} />
       <Route exact path="/users/:id/edit" component={EditUserFormContainer} />
       <Route exact path="/books" component={BookListContainer} />
@@ -28,6 +28,6 @@ const RoutesView = () => {
     </Switch>
   );
 };
-//<Route exact path="/login" component={LoginFormContainer} />
+//
 //<Route exact path="/" component={HomePageContainer} />
 export default RoutesView;

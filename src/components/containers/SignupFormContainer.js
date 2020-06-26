@@ -73,6 +73,7 @@ class SignupFormContainer extends Component {
     );
   }
 }
+
 const mapState = (state) => {
   return {
     allUsers: state.allUsers,
