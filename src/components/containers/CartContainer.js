@@ -12,6 +12,12 @@ class CartContainer extends Component {
         this.props.fetchUser(this.props.user.id);
     }
   }
+  componentDidUpdate(){
+    this.props.fetchAllItems();
+    if(this.props.user.id){
+        this.props.fetchUser(this.props.user.id);
+    }
+  }
 
   render() {
     if(!this.props.user.id){
