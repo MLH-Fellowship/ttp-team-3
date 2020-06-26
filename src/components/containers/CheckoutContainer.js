@@ -33,7 +33,7 @@ class CheckoutContainer extends Component {
     return (
       <div>
         <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-          <h2 className="display-4">Cart</h2>
+          <h2 className="display-4">Checkout</h2>
         </div>
         <div className="container">
         <div className="row">
