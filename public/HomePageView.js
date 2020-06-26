@@ -1,7 +1,6 @@
 import React from "react";
 //import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "./style.css";
 
 //basic Home page
 const HomePageView =(props)=> {
@@ -22,39 +21,49 @@ const HomePageView =(props)=> {
     });
   }
 
+
+  imageStyle = {
+    width: "100vw",
+    height: "50vh",
+  };
+
+  imageStyle
+
     return (
       <div>
         <h2>Welcome to Book Store</h2>
-        <div className="imageArea">
-          <div id="ImagecarouselIndicators" class="carousel slide" data-ride="carousel"  >
+        
+        <p>
+          <div id="ImagecarouselIndicators" class="carousel slide" data-ride="carousel" style={this.imageStyle}
+>
             <ol class="carousel-indicators">
-              <li data-slide-to="0" class="active"></li>
-              <li data-slide-to="1"></li>
-              <li  data-slide-to="2"></li>
+              <li data-target="" data-slide-to="0" class="active"></li>
+              <li data-target="" data-slide-to="1"></li>
+              <li data-target="" data-slide-to="2"></li>
             </ol>
             <div>
               <div class="carousel-item active">
-                <img class="d-block w-100" height="300px" src="https://springhillfresh.com/wp-content/uploads/2017/01/book-sale.jpg" alt="0"/>
+                <img class="d-block w-100" height="300px" src="https://springhillfresh.com/wp-content/uploads/2017/01/book-sale.jpg" alt="First"/>
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" height="300px" src="https://www.aer.io/img/blog-images/backlist_title_blog.jpg" alt="1"/>
+                <img class="d-block w-100" height="300px" src="https://www.aer.io/img/blog-images/backlist_title_blog.jpg" alt="Second"/>
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" height="300px" src="https://dispatch.barnesandnoble.com/content/dam/ccr/boutique/hero/PROD-18189_Pride_Hero_06-01-sticker.jpg" alt="2"/>
+                <img class="d-block w-100" height="300px" src="https://dispatch.barnesandnoble.com/content/dam/ccr/boutique/hero/PROD-18189_Pride_Hero_06-01-sticker.jpg" alt="Third"/>
               </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span  aria-hidden="true"></span>
+            <a class="carousel-control-prev" href="" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span  aria-hidden="true"></span>
+            <a class="carousel-control-next" href="" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true" ></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
-        </div>
-
-        <div className="bookArea">
+        </p>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <p>
         <h2>Most recent Book</h2>
           <div className="newestbook-container row" >
           {searchBook.map((book) => (
@@ -66,8 +75,7 @@ const HomePageView =(props)=> {
               </Link>
             </div>
           ))}
-          </div>
-        </div>
+          </div></p>
         </div>
     );
 }
