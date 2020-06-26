@@ -13,7 +13,6 @@ const HomePageView =(props)=> {
     searchBook=props.newestTen
     searchBook.map(book =>{
         if(!book.volumeInfo.imageLinks){
-            console.log(book)
             book.imgUrl="https://via.placeholder.com/305x242?text=Placeholder"
         }
         else{

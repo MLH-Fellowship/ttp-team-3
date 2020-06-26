@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchAllItemsThunk, deleteItemThunk } from "../../thunks";
+import { fetchAllItemsThunk, deleteItemThunk,fetchUserThunk } from "../../thunks";
 import { Link } from "react-router-dom";
 
 // Smart container;
 class CartContainer extends Component {
   componentDidMount() {
     this.props.fetchAllItems();
+    if(this.props.user.id){
+        this.props.fetchUser(this.props.user.id);
+    }
   }
 
   render() {
@@ -42,8 +45,7 @@ class CartContainer extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                  {this.props.allItems
-                    .filter((i) => i.userId === this.props.user.id)
+                  {this.props.user.books
                     .map(item => (
                     <tr key={item.id}>                
                       <td data-th="Product" >
@@ -91,6 +93,7 @@ const mapState = (state) => {
 // Map dispatch to props;
 const mapDispatch = (dispatch) => {
   return {
+    fetchUser: (id) => dispatch(fetchUserThunk(id)),
     fetchAllItems: () => dispatch(fetchAllItemsThunk()),
     deleteItem: (id) => dispatch(deleteItemThunk(id)),
   };

@@ -8,4 +8,5 @@ export { default as EditUserFormContainer } from "./EditUserFormContainer";
 export { default as BookListContainer } from "./BookListContainer";
 export { default as SearchBooksContainer } from "./SearchBooksContainer";
 export { default as BookContainer } from "./BookContainer";
-export {default as CartContainer} from "./CartContainer";
+export {default as CartContainer} from "./CartContainer"; 
+export {default as CheckoutContainer} from "./CheckoutContainer";

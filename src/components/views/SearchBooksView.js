@@ -17,7 +17,6 @@ const SearchBooksView = props => {
             book.imgUrl=book.volumeInfo.imageLinks.thumbnail
         }
     });
-    console.log(searchBook)
   return (
     <div className="center"> 
     <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">

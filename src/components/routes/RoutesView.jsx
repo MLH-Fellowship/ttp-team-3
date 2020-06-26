@@ -10,6 +10,7 @@ import {
   SearchBooksContainer,
   BookContainer,
   CartContainer,
+  CheckoutContainer,
 } from "../containers";
 
 const RoutesView = () => {
@@ -25,6 +26,7 @@ const RoutesView = () => {
       <Route exact path="/books/:id" component={BookContainer} />
       <Route exact path="/books/s/search" component={SearchBooksContainer} />
       <Route exact path="/cart" component={CartContainer}/>
+      <Route exact path="/checkout" component={CheckoutContainer}></Route>
     </Switch>
   );
 };

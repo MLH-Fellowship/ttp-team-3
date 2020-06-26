@@ -1,23 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
-  fetchBookThunk,addItemThunk, searchBooksThunk 
+  fetchBookThunk,addItemThunk
 } from "../../thunks";
 
 import { BookView } from "../views";
+// import { user } from "../../reducers";
 
 class BookContainer extends Component {
 
   handleSubmit = (e) => {
     let sBook=this.props.book
-     
+     let user=this.props.user
     if(!sBook.volumeInfo.imageLinks){
       sBook.imgUrl="https://via.placeholder.com/305x242?text=Placeholder"
     }
     else{
       sBook.imgUrl=sBook.volumeInfo.imageLinks.thumbnail
     }
-    if(sBook.saleInfo.saleability=="NOT_FOR_SALE"){
+    if(sBook.saleInfo.saleability==="NOT_FOR_SALE"){
       sBook.sale=false;
       sBook.price=null;
     }
@@ -32,10 +33,9 @@ class BookContainer extends Component {
       title:sBook.volumeInfo.title,
       imageUrl:sBook.imgUrl,
       price:sBook.price,
-      userId:1,
+      userId:user.id,
 
     }
-    console.log(item)
     e.preventDefault();
     this.props.addItem(item);
   }
@@ -47,7 +47,6 @@ class BookContainer extends Component {
   }
 
   render() {
-    console.log(this.props.book)
     return (
       <BookView
         user={this.props.user}
@@ -61,7 +60,7 @@ class BookContainer extends Component {
 // map state to props
 const mapState = (state) => {
   return {
-    // user:state.user,
+     user:state.user,
     book: state.book,
   };
 };
