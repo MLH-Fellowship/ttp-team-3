@@ -52,7 +52,7 @@ export const addItemThunk = (item, ownProps) => (dispatch) => {
       console.log(newUser)
       const tweakedUser = { ...newUser, books: [] };
       dispatch(addItem(tweakedUser));
-      // ownProps.history.push(`/favorite/`);
+       ownProps.history.push(`/cart/`);
     })
     .catch((err) => console.log(err));
 };

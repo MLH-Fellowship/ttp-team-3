@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const SearchBooksView = props => {
     let searchBook;
   if (!props.books.length) {
-    return <div>Nothing in the Search page</div>
+    return <div>Loading</div>
   }
   else{
     searchBook=props.books
