@@ -23,7 +23,7 @@ const NavBarView = (props) => {
   }
 
   return (
-    <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-info">
+    <nav className="navbar navbar-expand-md  fixed-top bg-light">
       <Link to="/home" className="navbar-brand">
         Book Store
       </Link>
@@ -37,7 +37,17 @@ const NavBarView = (props) => {
           {LoginDisplay}
           <li className="nav-item">
             <Link to="/books" className="nav-link">
-              books
+              Books
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/cart" className="nav-link">
+              Cart
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/Checkout" className="nav-link">
+              Checkout
             </Link>
           </li>
         </ul>
@@ -55,7 +65,7 @@ const NavBarView = (props) => {
             aria-label="Search"
           ></input>
           <button
-            className="btn btn-outline-light my-2 my-sm-0 bg-primary"
+            className="btn btn-outline-success my-2 my-sm-0 "
             type="submit"
           >
             Search

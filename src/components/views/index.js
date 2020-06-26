@@ -8,3 +8,4 @@ export { default as EditUserFormView } from "./EditUserFormView";
 export { default as BookListView } from "./BookListView";
 export { default as SearchBooksView } from "./SearchBooksView";
 export { default as BookView } from "./BookView";
+export {default as CheckoutView} from "./CheckoutView";

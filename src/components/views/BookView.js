@@ -4,7 +4,6 @@ import "./styles/BookView.css";
 const BookView = (props) => {
   let searchBook;
   let addcart;
-  let description;
   if (!props.book.volumeInfo) {
     return <div>loading</div>
   }
@@ -33,14 +32,15 @@ const BookView = (props) => {
         addcart=<div>NOT_FOR_SALE</div>
        }
   return (
-    <div className="book-container">
+    <div className="book-container ">
       <img src={searchBook.imgUrl} alt={props.book.id} />
       <div id="title-and-desc">
         <h1 id="title">{searchBook.volumeInfo.title}</h1>
         
-      </div>
+      
       <div dangerouslySetInnerHTML={{__html: searchBook.volumeInfo.description}} />
       {addcart}
+      </div>
     </div>
   );
 };
