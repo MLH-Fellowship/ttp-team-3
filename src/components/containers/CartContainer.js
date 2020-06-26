@@ -12,6 +12,13 @@ class CartContainer extends Component {
         this.props.fetchUser(this.props.user.id);
     }
   }
+  componentDidUpdate(){
+    this.props.fetchAllItems();
+    if(this.props.user.id){
+        this.props.fetchUser(this.props.user.id);
+    }
+  }
+
 
   render() {
     if(!this.props.user.id){
@@ -62,7 +69,10 @@ class CartContainer extends Component {
                           1
                       </td>
                       <td data-th="Subtotal" className="text-center" id="subtotal" >${item.price}</td>    
-                        <td><button className="btn btn-outline-danger"  onClick={() => this.props.deleteItem(item.id)}>Remove</button></td>
+                        <td><button className="btn btn-outline-danger"  
+                        onClick={() =>{
+                            this.props.deleteItem(item.id);
+                        } }>Remove</button></td>
                     </tr>
                     ))
                   }
@@ -72,7 +82,6 @@ class CartContainer extends Component {
                       <td><Link to="/books"  className="btn btn-outline-warning">Continue Shopping</Link></td>
                       <td colSpan="2"></td>
                       <td className="text-center"><strong>Total Price: ${(totalprice).toFixed(2)}</strong></td>
-                      {/* <td><LinkTo @route='checkout' className="btn btn-outline-success">Checkout</LinkTo></td> */}
                     </tr>
                   </tfoot>
                 </table>

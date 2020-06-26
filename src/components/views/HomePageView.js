@@ -16,6 +16,13 @@ const HomePageView = (props) => {
       } else {
         book.imgUrl = book.volumeInfo.imageLinks.thumbnail;
       }
+      if (book.saleInfo.saleability == "NOT_FOR_SALE") {
+        book.sale = false;
+        book.available = "NOT_FOR_SALE";
+      } else {
+        book.sale = true;
+        book.available = "Available";
+      }
     });
   }
 
@@ -118,10 +125,10 @@ const HomePageView = (props) => {
                     width="242px"
                     alt={book.id}
                   />
-                  <br />
-                  {book.volumeInfo.title}
+                  <h5 className="card-title">{book.volumeInfo.title}</h5>
                 </p>
               </Link>
+              <div className="text-muted">{book.available}</div>
             </div>
           ))}
         </div>
